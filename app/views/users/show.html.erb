@@ -1,5 +1,6 @@
 <div class="profile-info">
   <h1><%= @user.username.capitalize %>'s Account Page</h1>
+  <hr>
 </div>
 
 <div class="ideas">
@@ -9,12 +10,17 @@
     </tr>
     <% @ideas.each do |idea| %>
     <tr>
-      <td><%= link_to idea.title, idea_path(idea) %></td>
+      <td><%= link_to idea.title, idea_path(idea), class: "idea-title" %></td>
       <td>
-        <%= link_to "Edit", edit_idea_path(idea), class: "btn btn-success" %>
-        <%= link_to "Delete", idea_path(idea), method: :delete, class: "btn btn-danger" %>
+        <%= link_to edit_idea_path(idea), class: "btn btn-success" do %>
+          <i class="glyphicon glyphicon-pencil"></i>
+        <% end %>
+        <%= link_to idea_path(idea), method: :delete, class: "btn btn-danger" do %>
+          <i class="glyphicon glyphicon-trash"></i>
+        <% end %>
       </td>
     </tr>
     <% end %>
   </table>
+  <%= link_to "Add an Idea", new_idea_path, class: "btn btn-primary" %>
 </div>

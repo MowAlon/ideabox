@@ -1,11 +1,4 @@
 <h1>Create a new idea</h1>
 <hr>
 
-<%= form_for @idea do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %><br>
-  <%= f.label :description %>
-  <%= f.text_area :description %><br><br>
-  <%= f.hidden_field :user_id %>
-  <%= f.submit %>
-<% end %>
+<%= render 'ideas/form' %>

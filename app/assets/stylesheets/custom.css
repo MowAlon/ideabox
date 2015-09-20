@@ -13,7 +13,7 @@ h1 {
 }
 
 select {
-  font-size: 25;
+  font-size: 25px;
 }
 
 input[type="text"] {
@@ -32,6 +32,11 @@ input[type="password"] {
   border-radius: 50%;
   height: 100px;
   background-color: white;
+}
+
+.idea-title{
+  font-weight: bold;
+  font-size: 20px;
 }
 
 /*
@@ -58,4 +63,8 @@ tr:hover td {
 
 .btn {
   margin: 1px;
+}
+
+th{
+  font-size: 25px;
 }
