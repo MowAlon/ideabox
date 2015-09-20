@@ -36,7 +36,9 @@ RSpec.describe User, type: :model do
     expect(user).to be_invalid
   end
 
-
+  it "defaults new users as users, not admins" do
+    expect(user.admin).to be false
+  end
 
 
 end

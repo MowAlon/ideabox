@@ -7,11 +7,16 @@ class UsersController < ApplicationController
   def create
     user = User.create(user_params)
     session[:user_id] = user.id
-    redirect_to "/profile"
+    redirect_to profile_path
   end
 
   def show
-    @user = current_user
+    if current_user
+      @user = current_user
+      @ideas = @user.ideas
+    else
+      render plain: "You're not logged in. Please login to view your account info."
+    end
   end
 
   private

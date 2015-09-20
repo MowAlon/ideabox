@@ -1,3 +1,20 @@
 <div class="profile-info">
-  <%= @user.username.capitalize %>'s Account Page
+  <h1><%= @user.username.capitalize %>'s Account Page</h1>
+</div>
+
+<div class="ideas">
+  <table class="table table-bordered">
+    <tr>
+      <th>Title</th><th>Actions</th>
+    </tr>
+    <% @ideas.each do |idea| %>
+    <tr>
+      <td><%= link_to idea.title, idea_path(idea) %></td>
+      <td>
+        <%= link_to "Edit", edit_idea_path(idea), class: "btn btn-success" %>
+        <%= link_to "Delete", idea_path(idea), method: :delete, class: "btn btn-danger" %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
 </div>
