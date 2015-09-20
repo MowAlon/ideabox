@@ -3,12 +3,16 @@ class IdeasController < ApplicationController
   before_action :authorize, only: [:show, :edit, :update, :destroy]
 
   def new
-    @idea = Idea.new(user_id: current_user.id)
+    if current_user
+      @idea = Idea.new(user_id: current_user.id)
+      @categories = Category.all
+    else
+      render plain: "Must be logged in to add an idea."
+    end
   end
 
   def create
     idea = Idea.create(idea_params)
-    # session[:idea_id] = idea.id
     redirect_to profile_path
   end
 
@@ -16,6 +20,7 @@ class IdeasController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
   end
 
   def update
@@ -37,7 +42,7 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title, :description, :user_id)
+    params.require(:idea).permit(:title, :description, :user_id, :category_id)
   end
 
   def load_idea

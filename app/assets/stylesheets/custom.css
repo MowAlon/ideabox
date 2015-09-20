@@ -24,6 +24,11 @@ input[type="password"] {
   width: 50%;
 }
 
+textarea {
+  width: 50%;
+  height: 100px;
+}
+
 .headshot img{
   background-color: white;
 }

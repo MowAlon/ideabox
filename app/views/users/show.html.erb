@@ -4,23 +4,11 @@
 </div>
 
 <div class="ideas">
-  <table class="table table-bordered">
-    <tr>
-      <th>Title</th><th>Actions</th>
-    </tr>
-    <% @ideas.each do |idea| %>
-    <tr>
-      <td><%= link_to idea.title, idea_path(idea), class: "idea-title" %></td>
-      <td>
-        <%= link_to edit_idea_path(idea), class: "btn btn-success" do %>
-          <i class="glyphicon glyphicon-pencil"></i>
-        <% end %>
-        <%= link_to idea_path(idea), method: :delete, class: "btn btn-danger" do %>
-          <i class="glyphicon glyphicon-trash"></i>
-        <% end %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
+  <% @user.categories.uniq.each do |category| %>
+    <h1><%= category.name %></h1>
+    <% @category_ideas = @user.ideas.where(category_id: category.id) %>
+    <%= render 'users/ideas_table' %>
+  <% end %>
+  <br>
   <%= link_to "Add an Idea", new_idea_path, class: "btn btn-primary" %>
 </div>

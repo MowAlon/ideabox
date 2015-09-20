@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "User can edit" do
+feature "User can delete" do
   scenario "an existing idea" do
     username = "user"
     password = "password"
@@ -16,14 +16,11 @@ feature "User can edit" do
     click_on "Create Idea"
     idea = Idea.find_by(title: "This is a title")
 
-    click_link "edit"
-    fill_in "Title", with: "New title"
-    fill_in "Description", with: "New description."
-    click_on "Update Idea"
+    click_link "delete"
 
     expect(current_path).to eq(profile_path)
     within ".ideas" do
-      expect(page).to have_content("New title")
+      expect(page).to_not have_content("New title")
     end
   end
 end
