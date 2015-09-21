@@ -6,7 +6,7 @@ body {
   background-image: url("bg_colors_1920x1080.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  background-attachment: fixed;
 }
 
 h1 {
@@ -34,16 +34,22 @@ textarea {
   background-color: white;
 }
 
-.img-small img{
-  border-radius: 50%;
-  height: 100px;
-  background-color: white;
+.mosaic img{
+  height: 200px;
+}
+
+.tiny img{
+  height: 50px;
 }
 
 .main-cell{
-  width: 100%;
+  width: 50%;
   font-weight: bold;
   font-size: 20px;
+}
+
+.small-cell{
+  width: 1%;
 }
 
 .flash{

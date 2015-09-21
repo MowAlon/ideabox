@@ -1,13 +1,22 @@
 <div class="text-center">
   <%= form_for @idea do |f| %>
+  <section class="col-md-8">
     <%= f.label :title %><br>
     <%= f.text_field :title %><br><br>
     <%= f.label :description %><br>
     <%= f.text_area :description %><br><br>
 
     <%= f.collection_select :category_id, @categories, :id, :name %><br><br>
-
     <%= f.hidden_field :user_id %>
     <%= f.submit %>
+  </section>
+  <section class="col-md-4">
+    <% @images.each do |image| %>
+      <div class="mosaic">
+        <%= check_box_tag(image.id) %>
+        <img src="<%= image.address %>">
+      </div><br>
+    <% end %>
+  </section>
   <% end %>
 </div>

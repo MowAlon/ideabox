@@ -13,6 +13,8 @@ describe do
     visit new_idea_path
     fill_in "Title", with: "This is a title"
     fill_in "Description", with: "This describes my amazing idea."
+save_and_open_page
+    find("option[value='1']").click
     click_on "Create Idea"
 
     @idea = Idea.find_by(title: "This is a title")

@@ -1,11 +1,16 @@
 <table class="table table-bordered">
 <tr>
-  <th>Title</th><th>Actions</th>
+  <th>Title</th><th>Imagery Sample</th><th>Actions</th>
 </tr>
 <% @category_ideas.each do |idea| %>
 <tr>
   <td class="main-cell"><%= link_to idea.title, idea_path(idea) %></td>
-  <td>
+  <td class="main-cell tiny">
+    <% idea.images.sample(5).sort.each do |image| %>
+      <img src="<%= image.address %>">
+    <% end %>
+  </td>
+  <td class="small-cell">
     <%= link_to edit_idea_path(idea), id: "edit", class: "btn btn-success" do %>
       <i class="glyphicon glyphicon-pencil"></i>
     <% end %>

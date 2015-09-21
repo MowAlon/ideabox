@@ -34,14 +34,9 @@ class CategoriesController < ApplicationController
       flash.alert = "Heads up, you deleted a category that was being used. #{count} idea(s) deleted."
     end
 
-    # if @category.ideas.count > 0
-    #   flash.notice = "Can't delete '#{@category.name.capitalize}' because some ideas are assigned to it."
-    #   redirect_to categories_path
-    # else
-      @category.delete
-      flash.notice = "'#{@category.name}' Category deleted!"
-      redirect_to categories_path
-    # end
+    @category.delete
+    flash.notice = "'#{@category.name}' Category deleted!"
+    redirect_to categories_path
   end
 
   private
@@ -56,7 +51,7 @@ class CategoriesController < ApplicationController
 
     def authorize
       if !current_user.admin?
-        render plain: "Only and admin can mess with categories... make sure you're logged in."
+        render plain: "Only an admin can mess with categories... make sure you're logged in."
       end
     end
 

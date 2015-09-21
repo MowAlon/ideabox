@@ -3,6 +3,13 @@
 
 <%= @idea.description %>
 <hr>
+
+<div class="mosaic text-center">
+  <% @images.each do |image| %>
+    <img src="<%= image.address %>">
+  <% end %>
+</div>
+<hr>
 <%= link_to "Back to My Ideas", profile_path, class: "btn btn-primary" %>
 <%= link_to edit_idea_path(@idea), class: "btn btn-success" do %>
   <i class="glyphicon glyphicon-pencil"></i>

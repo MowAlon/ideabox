@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
   resources :categories, except: [:show]
   resources :ideas, except: [:index]
+  resources :images, except: [:show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

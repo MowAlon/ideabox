@@ -5,7 +5,8 @@
 
 <%= link_to "Add an Idea", new_idea_path, class: "btn btn-primary" %>
 <% if @user.admin? %>
-  <%= link_to "Administer Categories", categories_path, class: "btn btn-warning" %>
+  <%= link_to "Categories Admin", categories_path, class: "btn btn-warning" %>
+  <%= link_to "Images Admin", images_path, class: "btn btn-warning" %>
 <% end %>
 <hr>
 
