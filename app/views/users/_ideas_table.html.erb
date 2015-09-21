@@ -4,7 +4,7 @@
 </tr>
 <% @category_ideas.each do |idea| %>
 <tr>
-  <td><%= link_to idea.title, idea_path(idea), class: "idea-title" %></td>
+  <td class="main-cell"><%= link_to idea.title, idea_path(idea) %></td>
   <td>
     <%= link_to edit_idea_path(idea), id: "edit", class: "btn btn-success" do %>
       <i class="glyphicon glyphicon-pencil"></i>

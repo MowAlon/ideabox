@@ -3,6 +3,12 @@
   <hr>
 </div>
 
+<%= link_to "Add an Idea", new_idea_path, class: "btn btn-primary" %>
+<% if @user.admin? %>
+  <%= link_to "Administer Categories", categories_path, class: "btn btn-warning" %>
+<% end %>
+<hr>
+
 <div class="ideas">
   <% @user.categories.uniq.each do |category| %>
     <h1><%= category.name %></h1>
@@ -10,5 +16,4 @@
     <%= render 'users/ideas_table' %>
   <% end %>
   <br>
-  <%= link_to "Add an Idea", new_idea_path, class: "btn btn-primary" %>
 </div>

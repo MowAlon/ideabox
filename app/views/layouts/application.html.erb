@@ -12,7 +12,8 @@
  <%= render 'layouts/navbar' %>
 
 <div class="container well">
-  <%= flash.notice %>
+  <div class="flash flash-alert"><%= flash.alert %></div>
+  <div class="flash flash-notice"><%= flash.notice %></div>
   <%= yield %>
 </div>
 

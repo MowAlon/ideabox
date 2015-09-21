@@ -6,10 +6,11 @@ body {
   background-image: url("bg_colors_1920x1080.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
 }
 
 h1 {
-    text-shadow: 2px 2px #ffffff;
+    text-shadow: 3px 3px #ffffff;
 }
 
 select {
@@ -39,9 +40,25 @@ textarea {
   background-color: white;
 }
 
-.idea-title{
+.main-cell{
+  width: 100%;
   font-weight: bold;
   font-size: 20px;
+}
+
+.flash{
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.flash-notice{
+  background-color: green;
+}
+
+.flash-alert{
+  background-color: red;
 }
 
 /*
@@ -68,6 +85,7 @@ tr:hover td {
 
 .btn {
   margin: 1px;
+  border-radius: 50px;
 }
 
 th{

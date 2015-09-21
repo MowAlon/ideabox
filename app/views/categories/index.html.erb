@@ -1,0 +1,24 @@
+<h1>Category List</h1>
+<hr>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th><th>Ideas</th><th>Actions</th>
+  </tr>
+  <% @categories.order(:name).each do |category| %>
+  <tr>
+    <td class="main-cell"><%= category.name %></td>
+    <td class="main-cell text-center"><%= category.ideas.count %></td>
+    <td class="text-center">
+      <%= link_to edit_category_path(category), id: "edit", class: "btn btn-success" do %>
+        <i class="glyphicon glyphicon-pencil"></i>
+      <% end %>
+      <%= link_to category_path(category), id: "delete", method: :delete, class: "btn btn-danger" do %>
+        <i class="glyphicon glyphicon-trash"></i>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<%= link_to "Add Category", new_category_path, class: "btn btn-primary" %>

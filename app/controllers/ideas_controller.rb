@@ -13,6 +13,7 @@ class IdeasController < ApplicationController
 
   def create
     idea = Idea.create(idea_params)
+    flash.notice = "New idea added!"
     redirect_to profile_path
   end
 
@@ -28,7 +29,7 @@ class IdeasController < ApplicationController
       flash.notice = "Idea updated!"
       redirect_to profile_path
     else
-      flash.now[:notice] = "Failed to update!"
+      flash.now[:alert] = "Failed to update!"
       render :edit
     end
   end
